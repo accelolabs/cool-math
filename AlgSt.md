@@ -272,6 +272,8 @@ void QuickSort(int* arr, int left, int right) {
 
 ## 6. Сортировка подсчетом
 
+![imange](https://media.proglib.io/wp-uploads/-000//1/596b72331c0b7_65YUQe4.gif)
+
 **Есть 2 вида сортировки:**
 - Не устойчивая
 - Устойчивая
