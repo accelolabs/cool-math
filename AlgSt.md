@@ -100,9 +100,6 @@ function insertionSort(a):
 > <img src="img/mergeSortRecursion.png" width="512"> <br/>
 > Рекурсивный спуск (красный) и рекурсивный подъем (зеленый).
 
-### Процедура слияния
-!TODO
-
 ### Нерекурсивный метод
 Нерекурсивный метод работает оптимальнее, потому что не использует память, которую использовал бы для вызова функций. В итеративной реализации мы разбиваем массив на подмассивы длины 1. Вместе сливаем четные и нечетные подмассивы. После этого мы умножаем длину подмассива на 2 и повторяем процедуру слияния до тех пор, пока не отсортируется массив.
 
@@ -120,6 +117,8 @@ function insertionSort(a):
 ### Устойчивость - УСТОЙЧИВАЯ
 
 ### Псевдокод:
+
+#### Слияние
 Алгоритм слияния с [викиконспектов](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC).
 ```
 function merge(a : int[n]; left, mid, right : int):
@@ -147,6 +146,7 @@ function merge(a : int[n]; left, mid, right : int):
         a[left + i] = result[i]
 ```
 
+#### Рекурсивный алгоритм
 Рекурсивный алгоритм с [викиконспектов](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC).
 ```
 function mergeSortRecursive(a : int[n]; left, right : int):
@@ -158,6 +158,7 @@ function mergeSortRecursive(a : int[n]; left, right : int):
     merge(a, left, mid, right)
 ```
 
+#### Нерекурсивный алгоритм
 Нерекурсивный алгоритм с [викиконспектов](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC).
 ```
 function mergeSortIterative(a : int[n]):
@@ -201,7 +202,7 @@ $O(logn)$ памяти расходуется на рекурсивные выз
         quicksort(A, p + 1, high)
 ```
 
-### Разбиение Ломуто:
+#### Разбиение Ломуто:
 За опорный элемент берется последний элемент неотсортированного подмассива. На место элемента `a[i]` ищется элемент, меньший либо равный опорному. Если он нахоодится, мы свапаем `a[i]` и `a[j]`. Как только мы доходим до конца массива, мы свапаем опорный с `a[i]`. После этого возвращаем индекс `i`.
 
 Псевдокод с [википедии](https://ru.wikipedia.org/wiki/%D0%91%D1%8B%D1%81%D1%82%D1%80%D0%B0%D1%8F_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0).
@@ -217,7 +218,7 @@ algorithm partition(A, low, high) is
     return i
 ```
 
-### Разбиение Хоара:
+#### Разбиение Хоара:
 Псевдокод с [википедии](https://ru.wikipedia.org/wiki/%D0%91%D1%8B%D1%81%D1%82%D1%80%D0%B0%D1%8F_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0).
 ```
 algorithm partition(A, low, high) is
