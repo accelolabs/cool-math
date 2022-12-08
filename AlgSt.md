@@ -1,4 +1,5 @@
-# ВОПРОСЫ ПО АЛГОРИТМАМ И СТРУКТУРАМ ДАННЫХ I курс I семестр
+# Алгоритмы и структуры данных
+
 
 ## 1. Оценка сложности алгоритма по времени
 **Оценка сложности *по времени*** - сколько операций выполняет программа в зависимости от **количества принимаемых данных**.
@@ -19,6 +20,7 @@
 > [Ссылка на видео лекции КТ](https://youtu.be/8BniwdaAUMc?list=PLrS21S1jm43jz48qjdfYNpuIPgL3lNJ_o) <br/>
 > [Сыллка на лекцию Нияза Нигматуллина (CSC)](https://www.youtube.com/watch?v=k850DNwR9xw) <br/>
 
+
 ## 2. Оценка сложности алгоритма по памяти.
 
 Оценка сложности по памяти - сколько занимает памяти алгоритм.
@@ -38,15 +40,16 @@
 
 **NB! РЕКУРСИВНЫЙ ВЫЗОВ ТРАТИТ ПАМЯТЬ**
 
-<img src="img/bigOmemory.png" width="512">
+> <img src="img/bigOmemory.png" width="512">
+
 
 ## 3. Сортировка вставками
 
-<img src="img/insertionSort.gif" width="512">
+> <img src="img/insertionSort.gif" width="512">
 
 ### Принцип сортировки вставками:
-- Первый элемент считается отсортированным (инвариант*).
-- Просматриваем элементы слева направо от $j + 1$ и до конца.
+- Инвариант*: первый элемент считается отсортированным.
+- Просматриваем элементы слева направо от `j + 1` и до конца.
 - Выполняем вставку отсортированного элемента в отсортированную часть
 - После вставки увеличиваем отсортированную часть на 1.
 
@@ -54,118 +57,120 @@
 
 ### Cложность:
 **По времени:**
-- Лучший случай $O(n)$ (если массив и так отсортирован)
-- Средний случай $O(n^2)$
-- Худший случай (если массив отсортирован наоборот) $O(n^2)$ <br/>
+> - Лучший случай $O(n)$ (если массив и так отсортирован).
+> - Средний случай $O(n^2)$.
+> - Худший случай (если массив отсортирован наоборот) $O(n^2)$. <br/>
 
 **По памяти:**
-- Во всех случаях $O(1)$, потому что используем одну переменную во всех случаях.
+> - Во всех случаях $O(1)$, потому что используем одну переменную во всех случаях.
 
 ### Устойчивость
-***УСТОЙЧИВ***
+***УСТОЙЧИВАЯ***
 
 ### Реализации:
 - Меняем элемент, который хотим вставить каждый раз при сравнении его с другими элементами
 - Сравниваем элемент с элементами отсортированной части и двигаем её пока не найдем позицию нашего элемента.
 
-### Код:
-
-Реализация второго способа.
-```cpp
- for (int j = 1; j <= length; j++) {
-    key = a[j];
-    i = j - 1;
-    while (int i > 0 && a[i] > key) {
-       a[i + 1] = a[i];
-       i--;
-    }
-    a[i + 1] = key;
-}
+### Псевдокод:
+Реализация первого алгоритма взятая с [викиконспектов](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D0%B2%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%D0%BC%D0%B8) и презы Антона.
 ```
+function insertionSort(a):
+  for i = 1 to n
+    j = i - 1
+    while j >= 0 and a[j] > a[j + 1] 
+      swap(a[j], a[j + 1])
+      j--
+```
+
 
 ## 4. Сортировка слиянием
 
-<img src="img/mergeSort.gif" width="512">
+> <img src="img/mergeSort.gif" width="512">
+
+### Метод декомпозиции: разделяй и властвуй
+> 1. Задача разбивается на несколько меньших экземпляров той же задачи.
+> 2. Решаются сформированные меньшие экземпляры задачи (обычно рекурсивно).
+> 3. При необходимости решение формируется как комбинация решений меньших экземпляров задачи.
+
+Задачу сортировки массива также можно решить с помощью метода декомпозиции. Примером такого решения является *сортировка слиянием*.
 
 ### Принцип сортировки слиянием:
-- На рекурсивном спуске разбиваем массив напополам пока длина итоговых массивов не будет меньше или равна 1.
-- На рекурсивном подъёме сливаем полученные массивы в отсортированный массив.
+> - На рекурсивном спуске разбиваем массив пополам пока длина итоговых подмассивов не будет равна 1.
+> - На рекурсивном подъёме сливаем полученные массивы в отсортированный массив.
 
-**Рекурсивный спуск (красный) и рекурсивный подъем (зеленый)**
-<img src="img/mergeSortRecursion.png" width="512">
+> <img src="img/mergeSortRecursion.png" width="512"> <br/>
+> Рекурсивный спуск (красный) и рекурсивный подъем (зеленый).
+
+### Процедура слияния
+!TODO
+
+### Нерекурсивный метод
+Нерекурсивный метод работает оптимальнее, потому что не использует память, которую использовал бы для вызова функций. В итеративной реализации мы разбиваем массив на подмассивы длины 1. Вместе сливаем четные и нечетные подмассивы. После этого мы умножаем длину подмассива на 2.
+
+> <img src="img/iterativeMergeSort.jpg" width="512"> <br/>
+> Итеративная сортировка слиянием.
 
 ### Сложность алгоритма:
-
 **Сложность по времени:**
-- Во всех случаях сложность: $O(n \cdot logn)$, где n это для слияния, а $logn$ для разбиения.
+> - Во всех случаях сложность: $O(n \cdot logn)$, где n это для слияния, а $logn$ для разбиения.
 
 **Сложность по памяти:**
-- Сложность $O(n)$, потому что нужен вспомогательный массив.
+> - Сложность $O(n)$, потому что нужен вспомогательный массив.
+> - Существует реализация без доп. массива, но лучше об этом не говорить на защите...
 
 ### Устойчивость
 ***УСТОЙЧИВАЯ***
 
-### Код:
-
-> Merge — алгоритм слияния двух массивов. <br/>
-> MergeSort — сама сортировка слиянием. <br/>
-
-```cpp
-void Merge(int* array, int left, int middle, int right) {
-
-    int lb = middle - left + 1;
-    int rb = right - middle;
-
-    int L[lb];
-    int R[rb];
-
-    for (int i = 0; i < lb; i++) {
-        L[i] = array[left + i];
-    }
-    for (int j = 0; j < rb; j++) {
-        R[j] = array[middle + 1 + j];
-    }
-
-    int i = 0;  //L[1]
-    int j = 0;  //R[1]
-    int k = left;  
-
-    while (i < lb && j < rb) {
-        if (L[i] <= R[j]) {
-            array[k] = L[i];
-            i++;
-        }
-        else {
-            array[k] = R[j];
-            j++;
-        }
-        k++;
-    }
-
-    while (i < lb) {
-        array[k] = L[i];
-        i++;
-        k++;
-    }
-    while (j < rb) {
-        array[k] = R[j];
-        j++;
-        k++;
-    }
-}
-
-void MergeSort(int* array, int left, int right) {
-    if (left < right){
-        int med = left + (right - left) / 2;
-        MergeSort(array, left, med);
-        MergeSort(array, med + 1, right);
-        Merge(array, left, med,  right);
-    }
-}
-
+### Псевдокод:
+Алгоритм слияния с [викиконспектов](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC).
 ```
->[Ссылка на видео лекции КТ](https://www.youtube.com/watch?v=8BniwdaAUMc&list=PLrS21S1jm43jz48qjdfYNpuIPgL3lNJ_o) <br/>
->[Сыллка на лекцию Нияза Нигматуллина (CSC)](https://www.youtube.com/watch?v=MMBi2m2RHrQ&list=PLlb7e2G7aSpTZN_zRrbpVJUvB-pTuM_VL&index=2)
+function merge(a : int[n]; left, mid, right : int):
+    it1 = 0
+    it2 = 0
+    result : int[right - left]
+  
+    while left + it1 < mid and mid + it2 < right
+        if a[left + it1] < a[mid + it2]
+            result[it1 + it2] = a[left + it1]
+            it1 += 1
+        else
+            result[it1 + it2] = a[mid + it2]
+            it2 += 1
+  
+    while left + it1 < mid
+        result[it1 + it2] = a[left + it1]
+        it1 += 1
+  
+    while mid + it2 < right
+        result[it1 + it2] = a[mid + it2]
+        it2 += 1
+  
+    for i = 0 to it1 + it2
+        a[left + i] = result[i]
+```
+
+Рекурсивный алгоритм с [викиконспектов](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC).
+```
+function mergeSortRecursive(a : int[n]; left, right : int):
+    if left + 1 >= right
+        return
+    mid = (left + right) / 2
+    mergeSortRecursive(a, left, mid)
+    mergeSortRecursive(a, mid, right)
+    merge(a, left, mid, right)
+```
+
+Нерекурсивный алгоритм с [викиконспектов](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC).
+```
+function mergeSortIterative(a : int[n]):
+    for i = 1 to n, i *= 2
+        for j = 0 to n - i, j += 2 * i
+            merge(a, j, j + i, min(j + 2 * i, n))
+```
+
+> [Ссылка на видео лекции КТ](https://www.youtube.com/watch?v=8BniwdaAUMc&list=PLrS21S1jm43jz48qjdfYNpuIPgL3lNJ_o) <br/>
+> [Сыллка на лекцию Нияза Нигматуллина (CSC)](https://www.youtube.com/watch?v=MMBi2m2RHrQ&list=PLlb7e2G7aSpTZN_zRrbpVJUvB-pTuM_VL&index=2)
+
 
 ## 5. Быстрая сортировка
 
@@ -178,11 +183,11 @@ void MergeSort(int* array, int left, int right) {
 **Сложность по времени:**
 - Лучший: $O(n \cdot logn)$
 - Средний: $O(n \cdot logn)$
-- Худший: $O(n^2)$
+- Худшая: $O(n^2)$
 
 **Сложность по памяти:**
-- $O(n)$ - дополнительная память на массив
-- $O(logn)$ - необходимо памяти на спуск <br/>
+- $O(n)$ - дополнительная??? память на массив.
+- $O(logn)$ - необходимо памяти на спуск.
 
 Требует лишь $O(1)$ дополнительной памяти для своей работы (неулучшенный рекурсивный алгоритм - в худшем случае $O(n)$ памяти
 
@@ -191,7 +196,6 @@ void MergeSort(int* array, int left, int right) {
 
 
 ### Разбиение Ломуто:
-
 - За опорный элемент берётся последний неотсортированного массива
 - Ставим два указателя $i$ И $j$ на первый элемент, где $j$ — указатель на первый элемент, который больше опорного, а $i$ указатель на часть массива без опорного.
 - Если элемент под $i$-тым индексом меньше опорного мы свапаем его с $j$-тым элементом и увеличиваем оба указателя на 1.
@@ -220,7 +224,6 @@ algorithm quicksort(A, lo, hi) is
        p:= partition(A, lo, hi)
        quicksort(A, lo, p)
        quicksort(A, p + 1, hi)
-       
        
 algorithm partition(A, low, high) is
    pivot:= A[(low + high) / 2]
@@ -268,12 +271,12 @@ void QuickSort(int* arr, int left, int right) {
 }
 ```
 
-[Ссылка на видео лекции КТ](https://www.youtube.com/watch?v=CWiDEus3rDA&list=PLrS21S1jm43jz48qjdfYNpuIPgL3lNJ_o&index=3) <br/>
-[Сыллка на лекцию Нияза Нигматуллина (CSC)](https://www.youtube.com/watch?v=kaIP2dkBlbQ&list=PLlb7e2G7aSpTZN_zRrbpVJUvB-pTuM_VL&index=3)
+> [Ссылка на видео лекции КТ](https://www.youtube.com/watch?v=CWiDEus3rDA&list=PLrS21S1jm43jz48qjdfYNpuIPgL3lNJ_o&index=3) <br/>
+> [Ссылка на лекцию Нияза Нигматуллина (CSC)](https://www.youtube.com/watch?v=kaIP2dkBlbQ&list=PLlb7e2G7aSpTZN_zRrbpVJUvB-pTuM_VL&index=3)
 
 ## 6. Сортировка подсчетом
 
-<img src="img/countingSort.gif" width="512">
+> <img src="img/countingSort.gif" width="512">
 
 **Есть 2 вида сортировки:**
 - Не устойчивая
