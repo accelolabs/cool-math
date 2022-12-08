@@ -32,5 +32,5 @@
 
 !TODO НАДО ЧТО-ТО СДЕЛАТЬ
 
-<img src="img/capybara.JPG" width="512" />
+<img src="img/capybara.JPG" width="512">
 Картинки нужно кидать в /img и делать длину 512, прикрепляя через тег.
