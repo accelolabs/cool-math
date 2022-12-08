@@ -333,3 +333,13 @@ StableCountingSort
         C[A[i]] = C[A[i]] - 1;
         B[C[A[i]]] = A[i];
 ```
+## 7. Цифровая сортировка
+**Цифровая сортировка** - один из алгоритмов сортировки, использующих внутреннею структуру сортируемых объектов.
+
+![imange](https://media.proglib.io/wp-uploads/-000//1/596b7234d2019_AXiQeN1.gif)
+
+**LSD**
+![image](https://user-images.githubusercontent.com/104169838/206432564-c81aac9f-fa83-45c7-a423-c4b5f92894a9.png)
+
+**MSD**
+![image](https://user-images.githubusercontent.com/104169838/206432679-4628eec4-97ba-4771-bb8b-95d3a991b7e7.png)
