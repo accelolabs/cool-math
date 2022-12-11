@@ -364,7 +364,7 @@ function complexCountingSort(A: int[n], B: int[n]):
 
 
 #### На списке
-
+> <img src="img/stack_list.png" width="512"> <br/>
 
 
 ## 9. Очередь
