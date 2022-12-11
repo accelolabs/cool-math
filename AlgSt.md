@@ -386,7 +386,7 @@ function push(arr[], head, element):
 
 ```
 element pop(arr[], head):
-    if empty() then error "underflow"
+    if empty then error "underflow"
     head--
     return arr[head]
 ```
@@ -396,15 +396,61 @@ element pop(arr[], head):
 #### На списке
 > <img src="img/stack_list.png" width="512"> <br/>
 
+Пусть будет задана структура `Node` для элементов стека. `head` будет указателем на последний добавленный `Node`.
+```
+structure Node
+    int value
+    Node* next
+```
+
 **Empty** <br/>
+```
+boolean empty(head):
+    if head == null return true
+    return false
+```
 
 **Push** <br/>
+```
+function push(head, value) {
+    Node* new_head
+    
+    new_head -> value = value
+    new_head -> next = head
+    
+    head = new_head
+}
+```
 
 **Pop** <br/>
+```
+int pop(head) {
+    if empty then error "underflow"
+
+    int temp = head -> value
+    Node* new_head = head -> next
+    
+    delete head
+    head = new_head
+    
+    return temp
+}
+```
+
+#### Макстек
+**Макстек** - стек, в котором можно найти текущий максимум (за $O(1)$, разумеется).
+
+Для этого будем держать максимум в каждом элементе. Добавляя, будем изменять его, если добавляемый элемент больше максимума (единственное отличие от обычного стека).
+```
+structure Node
+    int value
+    int max
+    Node* next
+```
 
 
 ## 9. Очередь
-> <img src="img/queue.png" width="512">
+> <img src="img/queue.png" width="512">  <br/>
 > Очередь
 
 **Очередь** - это структура данных, добавление и удаление элементов в которой происходит путём операций push и pop соответственно. Притом первым из очереди удаляется элемент, который был помещен туда первым, то есть в очереди реализуется принцип first-in, first-out — FIFO. У очереди имеется голова (англ. head) и хвост (англ. tail). Когда элемент ставится в очередь, он занимает место в её хвосте. Из очереди всегда выводится элемент, который находится в ее голове. [[викиконспекты]](http://neerc.ifmo.ru/wiki/index.php?title=%D0%9E%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C)
