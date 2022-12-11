@@ -667,7 +667,7 @@ void pop_stack() {  //удаление из конца
 
 Рассмотрим его подробно:
 
-> <img src="img/LoopListTutle.png" width="512"> <br/>
+> <img src="img/LoopListTurtle.png" width="512"> <br/>
 
 1) Ставим черепашку в позицию 0 (в данном случае — $node$ со значение 3)
 
