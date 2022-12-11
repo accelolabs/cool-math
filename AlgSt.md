@@ -360,8 +360,12 @@ function complexCountingSort(A: int[n], B: int[n]):
 
 ### Реализации
 #### На массиве
+> <img src="img/stack_array.gif" width="512"> <br/>
+
 
 #### На списке
+
+
 
 ## 9. Очередь
 > <img src="img/queue.png" width="512">
@@ -377,8 +381,10 @@ function complexCountingSort(A: int[n], B: int[n]):
 
 ### Реализации
 #### На массиве
+> <img src="img/queue_array.png" width="512"> <br/>
 
 #### На списке
+> <img src="img/queue_list.png" width="512"> <br/>
 
 ### Приоритетная очередь
 
