@@ -368,15 +368,17 @@ function complexCountingSort(A: int[n], B: int[n]):
 Индекс в начале массива.
 
 ```
-boolean empty(arr[], head):
+boolean empty():
     return head == 0
 ```
 
 **Push** <br/>
 
 ```
-function push(arr[], head, element):
-    arr[head] = element
+function push(value):
+    if head >= arr.n then error "overflow"
+    
+    arr[head] = value
     head++
 ```
 
@@ -384,8 +386,9 @@ function push(arr[], head, element):
 Снимаем, если в стеке есть элементы.
 
 ```
-element pop(arr[], head):
-    if empty then error "underflow"
+element pop():
+    if empty() then error "underflow"
+    
     head--
     return arr[head]
 ```
@@ -397,33 +400,32 @@ element pop(arr[], head):
 
 Пусть будет задана структура `Node` для элементов стека. `head` будет указателем на последний добавленный `Node`.
 ```
-structure Node
+structure Node:
     int value
     Node* next
 ```
 
 **Empty** <br/>
 ```
-boolean empty(head):
+boolean empty():
     if head == null return true
     return false
 ```
 
 **Push** <br/>
 ```
-function push(head, value) {
+function push(value):
     Node* new_head
     
     new_head -> value = value
     new_head -> next = head
     
     head = new_head
-}
 ```
 
 **Pop** <br/>
 ```
-int pop(head) {
+int pop():
     if empty then error "underflow"
 
     int temp = head -> value
@@ -433,7 +435,6 @@ int pop(head) {
     head = new_head
     
     return temp
-}
 ```
 
 ### Макстек
@@ -441,7 +442,7 @@ int pop(head) {
 
 Для этого будем держать максимум в каждом элементе. Добавляя, будем изменять его, если добавляемый элемент больше максимума (единственное отличие от обычного стека).
 ```
-structure Node
+structure Node:
     int value
     int max
     Node* next
@@ -467,23 +468,91 @@ structure Node
 Пусть `head` и `tail` - индексы массива. При этом массив у нас циклический и при выходе любого из индексов за границы мы ставим их в начало.
 
 **Empty** <br/>
+```
+boolean empty():
+    return head == tail
+```
+
+**Size** <br/>
+Размер очереди определяется так:
+```
+int size():
+  if head > tail
+    return n - head + tail
+  else
+    return tail - head
+```
 
 **Push** <br/>
+```
+function push(value):
+  if (size() >= arr.n) then error "overflow"
+  
+  arr[tail] = value
+  tail = (tail + 1) % n
+```
 
 **Pop** <br/>
+```
+function pop():
+    if (empty()) then error "underflow"
 
-**Критерий переполнения** - `head` равен `tail` в непустой очереди.
+    temp = arr[head]
+    head = (head + 1) % arr.n
+    return temp
+```
+
+**Критерий переполнения** - размер очереди превышает размер массива.
 
 ### На списке
 > <img src="img/queue_list.png" width="512"> <br/>
 
+Пусть будет задана структура `Node` для элементов очереди. `head` и `tail` будут указателями на `Node`.
+```
+structure Node:
+    int value
+    Node* next
+```
+
 **Empty** <br/>
+```
+boolean empty():
+    return head == null and tail == null
+```
 
 **Push** <br/>
+```
+function push(value):
+    Node* new_tail
+    
+    new_tail -> value = value
+    new_tail -> next = null
+  
+    if head == null
+        tail = new_tail
+        head = tail
+    else 
+        tail -> next = new_tail
+	tail = new_tail
+
+```
 
 **Pop** <br/>
+```
+int pop(): 
+    temp = head -> value
+    
+    delete head
+    head = head -> next
+    
+    if head == null then tail == null
+    
+    return temp
+```
 
 ### На двух стеках
+!TODO
+
 [Stackoverflow - How to implement a queue using two stacks?](https://stackoverflow.com/questions/69192/how-to-implement-a-queue-using-two-stacks)
 
 ### Приоритетная очередь
