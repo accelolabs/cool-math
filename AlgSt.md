@@ -345,6 +345,8 @@ function complexCountingSort(A: int[n], B: int[n]):
 
 > <img src="img/radixsort.png" width="512">
 
+!TODO дополнить
+
 
 ## 8. Стек
 > <img src="img/stack.png" width="512"> <br/>
