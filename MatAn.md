@@ -117,8 +117,14 @@ $\stackrel{\circ}{U} (x_0) = U(x_0)$ \ { $x_0$ } <br/>
 <img src="img/LogarithmicGraph1.jpg" width="128"> <img src="img/LogarithmicGraph2.jpg" width="128"> <br/>
 
 ***5. Тригонометрические*** <br/>
-!TODO
-6. Обратные тригонометрические
+| y = sin{x} | y = cos{x} | y = tg{x} | y = ctg{x} |
+| - | - | - | - |
+| <img src="img/Sinusoida.jpg" width="128"> | <img src="img/Cosinusoida.jpg" width="128"> | <img src="img/Tangensoida.jpg" width="128"> | <img src="img/Cotangensoida.jpg" width="128"> | <br/>
+
+***6. Обратные тригонометрические*** <br/>
+| y = arcsin{x} | y = arccos{x} | y = arctg{x} | y = arcctg{x} |
+| - | - | - | - |
+| <img src="img/Arcsin.png" width="128"> | <img src="img/Arccos.png" width="128"> | <img src="img/Arctg.png" width="128"> | <img src="img/Arcctg.png" width="128"> |
 
 **Элементарные функции** - функции, полученные из основных элементарных функций с помощью четырех арифметических действий и операции суперпозиции, примененных конечное число раз. <br/>
 
