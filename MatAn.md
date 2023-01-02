@@ -93,26 +93,22 @@ $\stackrel{\circ}{U} (x_0) = U(x_0)$ \ { $x_0$ } <br/>
 **Функция** — правило, по которому любому элементу из области определения ставится в соответствие единственный элемент из области значения. <br/>
 
 ### Числовые функции
-**Основные элементарные функции**:
-***1. Линейная*** <br/>
-**$y = kx+b$** *(прямая)* <br/>
-<img src="img/LinearGraph.jpg" width="128"> <br/>
+**Основные элементарные функции**: <br/>
+***1. Константа*** <br/>
+**$y = const$** <br/>
+(прямая параллельная оси Ох) <br/>
 
-***2. Квадратичная*** <br/>
-**$y = ax^2+bx+c$** *(парабола)* <br/>
-<img src="img/QuadraticGraph.jpg" width="128"> <br/>
-
-***3. Степенная*** <br/>
+***2. Степенная*** <br/>
 | $y=x^3$ *(кубическая парабола)* | $y = \sqrt{x}$ | $y = k/x$ *(гипербола)* |
 | - | - | - |
 | <img src="img/CubicParabola.jpg" width="128"> | <img src="img/RootOfX.jpg" width="128">| <img src="img/Hyperbole.jpg" width="128"> | <br/>
 
-***4. Показательная*** <br/>
+***3. Показательная*** <br/>
 | $y = e^x$ *(экспонента)* | $y = a^x$ *(График показательной функции)* |
 | - | - |
 | <img src="img/Exponent.jpg" width="128"> | <img src="img/IndicativeFunctionInteger.jpg" width="128">  <img src="img/IndicativeFunctionFraction.jpg" width="128"> |
 
-***5. Логарифмическая*** <br/>
+***4. Логарифмическая*** <br/>
 **$y = log_a x$** <br/>
 <img src="img/LogarithmicGraph1.jpg" width="128"> <img src="img/LogarithmicGraph2.jpg" width="128"> <br/>
 
