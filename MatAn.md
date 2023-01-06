@@ -287,6 +287,9 @@ $|\alpha(x) + \beta(x)| <= |\alpha(x)| + |\beta(x)| < \frac{\varepsilon}{2} + \f
 ### Определение предела функции по Гейне
 >$f(x)$ имеет **предел** $L$ в точке $a$, если для любой **последовательности** { $x_n$ }: $x_n \neq a$, сходящейся к $a:\lim\limits_{n \to \inf} x_n = a$, $\lim\limits_{n \to \inf} f(x_n) = L$.<br/>
 
+**Бесконечно малая**
+> Функция $f(x)$ называется бесконечно малой при $x \rightarrow x_0$, если $\lim\limits_{x \rightarrow x_0} f(x) = 0$.
+
 **Бесконечно большая**
 >Функция $f(x)$ называется бесконечно большой при $x \rightarrow x_0$, если $\lim\limits_{x \rightarrow x_0} f(x) = \infty$.
 
