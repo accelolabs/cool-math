@@ -359,7 +359,7 @@ $f'(x) = f(x) \cdot (ln(f(x)))'$
 
 ## 15. Вывод уравнения касательной и нормали к графику функций.
 
-Для начала стоит вспомнить (или узнать) геометрический смсл производной. <br/>
+Для начала стоит вспомнить (или узнать) геометрический смысл производной. <br/>
 
 > <img src="img/GeometricalMeaningOfTheDerivative1.png" width="312">
 > <img src="img/GeometricalMeaningOfTheDerivative.png" width="300">
