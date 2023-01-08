@@ -548,7 +548,7 @@ $d^n y = y^{(n)}dx^{n}$
 ### Правило Лопиталя
 
 > Правило говорит, что если функции $f(x)$ и $g(x)$ обладают следующим набором условий: <br/>
-> 1. $\lim\limits_{x \to a^{+}} f(x) = \lim\limits_{x \to a^{+}} = 0$ или $\infty$ <br/>
+> 1. $\lim\limits_{x \to a^{+}} f(x) = \lim\limits_{x \to a^{+}} g(x) = 0$ или $\infty$ <br/>
 > 2. $\exists \lim\limits_{x \to a^{+}} \frac{f'(x)}{g'(x)}$; <br/>
 > 3. $g(x) \neq 0$ в некоторой окрестности точки $a$ <br/> <br/>
 > Тогда существует $\lim\limits_{x \to a^{+}} \frac{f(x)}{g(x)} = \lim\limits_{x \to a^{+}} \frac{f'(x)}{g'(x)}$
