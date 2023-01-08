@@ -286,6 +286,9 @@ $|\alpha(x) + \beta(x)| <= |\alpha(x)| + |\beta(x)| < \frac{\varepsilon}{2} + \f
 **Запись на $(\varepsilon,\space\delta)$ языке:** $\forall \varepsilon > 0 \space \exists \delta > 0: \forall x \space 0 < |x - x_0| < \delta \Rightarrow |f(x) - a| < \varepsilon$ <br/>
 > Число $a$ называется пределом функции $f(x)$ при $x \rightarrow x_0$, если $\forall \varepsilon$  (где $\varepsilon$ - сколь угодно малое число)  $\exists \delta > 0$ такое, что для всех значений независимой переменной $x$, находящихся в проколотой $\delta$-окрестности точки $x_0$ будет выполнено неравенство $|f(x) - a| < \varepsilon$.
 
+### Определение предела функции по Гейне
+>$f(x)$ имеет **предел** $L$ в точке $a$, если для любой **последовательности** { $x_n$ }: $x_n \neq a$, сходящейся к $a:\lim\limits_{n \to \inf} x_n = a$, $\lim\limits_{n \to \inf} f(x_n) = L$.<br/>
+
 **Бесконечно малая**
 > Функция $f(x)$ называется бесконечно малой при $x \rightarrow x_0$, если $\lim\limits_{x \rightarrow x_0} f(x) = 0$.
 
